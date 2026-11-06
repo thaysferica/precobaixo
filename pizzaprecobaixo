@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pizza Preço Baixo - Peça Agora!</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#0b3d2e;color:#222;padding-bottom:80px}
+.top{background:#d60000;color:#fff;text-align:center;padding:18px 10px}
+.top h1{font-size:24px;line-height:1.2}
+.top p{color:#ffcc00;font-weight:bold;margin-top:4px}
+.aviso{background:#ffcc00;text-align:center;padding:12px 10px;font-size:13px;font-weight:bold;line-height:1.4}
+.aviso span{color:#d60000}
+.box{background:#fff;margin:15px;border-radius:15px;padding:18px;text-align:center}
+.box h2{color:#d60000;margin-bottom:6px}
+.btns{display:flex;gap:10px;justify-content:center;margin:14px 0;flex-wrap:wrap}
+.btn{padding:12px 16px;border-radius:30px;text-decoration:none;color:#fff;font-weight:bold;font-size:14px;border:none;cursor:pointer}
+.wpp{background:#25D366}.insta{background:#111}
+.cat{margin:15px;background:#fff;border-radius:15px;overflow:hidden}
+.cat-head{background:#d60000;color:#fff;padding:12px 14px;display:flex;justify-content:space-between;align-items:center}
+.cat-head b{background:#ffcc00;color:#000;padding:5px 12px;border-radius:20px;white-space:nowrap}
+.item{padding:13px 14px;border-bottom:1px solid #eee}
+.item:last-child{border:none}
+.item h3{font-size:14px;text-transform:uppercase}
+.item p{font-size:12.5px;color:#666;margin:4px 0 8px;line-height:1.4}
+.item-row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.price{font-weight:bold;color:#0b3d2e;font-size:15px;white-space:nowrap}
+.add{background:#0b3d2e;color:#fff;border:none;padding:8px 13px;border-radius:20px;font-weight:bold;cursor:pointer;white-space:nowrap}
+.opts{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;font-size:12px}
+.opts label{background:#f2f2f2;padding:6px 10px;border-radius:20px;cursor:pointer}
+.cart{position:fixed;bottom:0;left:0;right:0;background:#fff;box-shadow:0 -3px 15px rgba(0,0,0,.3);padding:12px 15px;z-index:99}
+.cart-top{display:flex;justify-content:space-between;align-items:center}
+.ver{background:#d60000;color:#fff;border:none;padding:11px 18px;border-radius:25px;font-weight:bold;cursor:pointer}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:100;overflow:auto}
+.modal-box{background:#fff;margin:20px auto;max-width:480px;border-radius:15px;padding:20px}
+.modal-box h2{color:#d60000;margin-bottom:12px;text-align:center}
+.cart-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #eee;font-size:14px;gap:8px}
+.cart-item small{color:#666;display:block}
+.rm{color:red;border:none;background:none;font-size:18px;cursor:pointer}
+input,select,textarea{width:100%;padding:11px;margin:6px 0;border:1px solid #ccc;border-radius:10px;font-size:15px}
+.total-box{background:#fff8d6;padding:12px;border-radius:10px;margin:10px 0;font-size:14px;line-height:22px}
+.send{background:#25D366;color:#fff;border:none;width:100%;padding:15px;border-radius:30px;font-weight:bold;font-size:16px;cursor:pointer;margin-top:8px}
+.close{background:#eee;border:none;width:100%;padding:10px;border-radius:20px;margin-top:8px;cursor:pointer}
+.meio{font-size:12px;color:#d60000;font-weight:bold;margin-top:6px}
+</style>
+</head>
+<body>
+
+<div class="top">
+<h1>🍕 PIZZA PREÇO BAIXO<br>Todos os dias!</h1>
+<p>Pizza grande - 8 fatias</p>
+</div>
+
+<div class="aviso">
+COMUNICADO IMPORTANTE AOS NOSSOS CLIENTES!<br>
+Fizemos o possível para manter os preços acessíveis.<br>
+<span>Novos valores: R$ 18,00 | R$ 25,00 | R$ 35,00 | R$ 55,00</span><br>
+⚠️ Em todas as pizzas meio a meio será acrescentado R$ 5,00
+</div>
+
+<div class="box">
+<h2>Peça Agora!</h2>
+<p><b>Rua Estanislau Mazeba, 148 - Vila Juliana, Piraquara</b></p>
+<p style="margin-top:8px">📞 3798-9517 | 3798-9483<br>📱 WhatsApp: 99618-7621</p>
+<div class="btns">
+<a class="btn wpp" href="https://wa.me/5541996187621" target="_blank">📱 Chamar no WhatsApp</a>
+<a class="btn insta" href="https://instagram.com/pizzapreco_baixo" target="_blank">📸 @pizzapreco_baixo</a>
+</div>
+<p>✅ TEMOS BORDA RECHEADA<br>🥤 Temos refrigerantes 2 litros<br>Coca cola • Fanta laranja • Guaraná • Cine sabores</p>
+<p style="font-size:13px;margin-top:8px;color:#555">Devido aos constantes aumentos nos preços dos ingredientes, precisamos realizar um pequeno reajuste. Agradecemos muito a compreensão, o carinho e a preferência de sempre!</p>
+</div>
+
+<!-- R$ 18 -->
+<div class="cat"><div class="cat-head"><span>PIZZA R$ 18,00</span><b>R$ 18</b></div>
+<div id="cat18"></div></div>
+
+<!-- R$ 25 -->
+<div class="cat"><div class="cat-head"><span>PIZZA R$ 25,00</span><b>R$ 25</b></div>
+<div id="cat25"></div></div>
+
+<!-- R$ 35 -->
+<div class="cat"><div class="cat-head"><span>PIZZA R$ 35,00</span><b>R$ 35</b></div>
+<div id="cat35"></div></div>
+
+<!-- R$ 55 -->
+<div class="cat"><div class="cat-head"><span>PIZZA R$ 55,00</span><b>R$ 55</b></div>
+<div id="cat55"></div></div>
+
+<!-- DOCE 25 -->
+<div class="cat"><div class="cat-head"><span>PIZZA DOCE R$ 25,00</span><b>R$ 25</b></div>
+<div id="catDoce25"></div></div>
+
+<!-- DOCE 35 -->
+<div class="cat"><div class="cat-head"><span>PIZZA DOCE R$ 35,00</span><b>R$ 35</b></div>
+<div id="catDoce35"></div></div>
+
+<!-- REFRIS -->
+<div class="cat"><div class="cat-head"><span>REFRIGERANTES 2 LITROS</span><b>CONSULTAR</b></div>
+<div class="item"><h3>Coca Cola 2L</h3><p>Refrigerante 2 litros gelado</p><div class="item-row"><span class="price">Consultar</span><button class="add" onclick="add('Coca Cola 2L',0)">+ Adicionar</button></div></div>
+<div class="item"><h3>Guaraná 2L</h3><p>Refrigerante 2 litros gelado</p><div class="item-row"><span class="price">Consultar</span><button class="add" onclick="add('Guaraná 2L',0)">+ Adicionar</button></div></div>
+<div class="item"><h3>Fanta Laranja 2L</h3><p>Refrigerante 2 litros gelado</p><div class="item-row"><span class="price">Consultar</span><button class="add" onclick="add('Fanta Laranja 2L',0)">+ Adicionar</button></div></div>
+</div>
+
+<div class="cart" id="cartBar" style="display:none">
+<div class="cart-top"><div><b id="cartCount">0 itens</b><br><small id="cartTotal">Total: R$ 0,00</small></div><button class="ver" onclick="openCart()">Ver Pedido 🛒</button></div>
+</div>
+
+<div class="modal" id="modal">
+<div class="modal-box">
+<h2>Seu Pedido 🛒</h2>
+<div id="cartItems"></div>
+<div class="total-box" id="totals"></div>
+<input id="nome" placeholder="Seu nome *">
+<input id="endereco" placeholder="Endereço completo (se for entrega)">
+<select id="tipo" onchange="renderCart()">
+<option value="entrega">🛵 Entrega - Taxa R$ 8,00</option>
+<option value="retirada">🏃 Retirada no balcão - Grátis</option>
+</select>
+<select id="pagamento">
+<option>Dinheiro</option><option>Pix</option><option>Cartão na entrega</option><option>Cartão na retirada</option>
+</select>
+<textarea id="obs" placeholder="Observações: ex: meio a meio, sem cebola..."></textarea>
+<label style="font-size:13px"><input type="checkbox" id="meioameio" style="width:auto"> Pedido meio a meio? + R$ 5,00</label>
+<button class="send" onclick="sendOrder()">Enviar Pedido no WhatsApp ✅</button>
+<button class="close" onclick="closeCart()">Continuar comprando</button>
+</div>
+</div>
+
+<script>
+let menu={
+cat18:[
+["ALHO E ÓLEO","molho, mussarela, alho, óleo e orégano"],
+["CATUPALHA","molho, mussarela, catupiry, batata palha e orégano"],
+["HUMITA","molho, mussarela, milho, ervilha e orégano"],
+["MILHO","molho, mussarela, milho e orégano"],
+],
+cat25:[
+["3 QUEIJOS","molho, mussarela, catupiry, parmesão e orégano"],
+["BACON","molho, mussarela, bacon e orégano"],
+["BACON CHEDDAR","molho, mussarela, bacon, cheddar e orégano"],
+["BACON MILHO","molho, mussarela, bacon, milho e orégano"],
+["CAIPIRA","molho, mussarela, frango, milho e orégano"],
+["CALABRESA","molho, mussarela, calabresa e orégano"],
+["FRANGO","molho, mussarela, frango e orégano"],
+["FRANGO CATUPIRY","molho, mussarela, frango, catupiry e orégano"],
+["FRANGO CHEDDAR","molho, mussarela, frango, cheddar e orégano"],
+["FRANGO CROCANTE","molho, mussarela, frango, batata palha e orégano"],
+["LOMBO CATUPIRY","molho, mussarela, lombo, catupiry e orégano"],
+["LOMBO CHEDDAR","molho, mussarela, lombo, cheddar e orégano"],
+["LOMBO","molho, mussarela, lombo e orégano"],
+["MUSSARELA","molho, mussarela e orégano"],
+["MARGUERITA","molho, mussarela, tomate, manjericão e orégano"],
+["ROMANA","molho, mussarela, presunto, tomate e orégano"],
+],
+cat35:[
+["4 QUEIJOS","molho, mussarela, provolone, parmesão ralado, catupiry e orégano"],
+["BARCELONA","molho, mussarela, frango, tomate picado, catupiry e orégano"],
+["BRÓCOLIS","molho, mussarela, brócolis e orégano"],
+["BRÓCOLIS COM BACON","molho, mussarela, brócolis, bacon e orégano"],
+["CALABRESA ACEBOLADA","molho, mussarela, calabresa, cebola e orégano"],
+["CHAMPIGNON ESPECIAL","molho, mussarela, champignon, tomate temperado, bacon, azeitonas e orégano"],
+["ESCAROLA COM BACON","molho, mussarela, escarola, bacon e orégano"],
+["ESPECIAL DO PIZZAIOLO","molho, mussarela, calabresa, bacon, ovos, azeitonas e orégano"],
+["FRANGO CREMOSO","molho, mussarela, frango, creme de milho cremoso e orégano"],
+["FRANGO ESPECIAL","molho, mussarela, frango, bacon, tomate picado, palmito e orégano"],
+["PIZZA DO LALA","molho, mussarela, frango, champignon, ovos e orégano"],
+["PORTUGUESA","molho, mussarela, presunto, cebola, ovos, azeitonas e orégano"],
+],
+cat55:[
+["CARNÍVORA","molho, mussarela, calabresa, bacon, lombo, presunto e orégano"],
+["DA CASA","molho, mussarela, bacon, lombo, calabresa, catupiry, milho e orégano"],
+["DA VOVÓ","molho, mussarela, frango, catupiry, tomate, bacon, milho e orégano"],
+["DO FORNEIRO","molho, mussarela, frango, bacon, lombo, catupiry, milho e orégano"],
+["LEÃO","molho, mussarela, calabresa, bacon, lombo, tomate, cheddar e orégano"],
+["MIGNON","molho, mussarela, mignon e orégano"],
+["MIGNON A 4 QUEIJOS","molho, mussarela, mignon, 4 queijos e orégano"],
+["MIGNON ACEBOLADO","molho, mussarela, mignon, cebola e orégano"],
+["MIGNON ALHO E ÓLEO","molho, mussarela, mignon, alho e óleo e orégano"],
+["MIGNON CHEDDAR","molho, mussarela, mignon, cheddar e orégano"],
+["MIGNON COM BRÓCOLIS","molho, mussarela, mignon, brócolis e orégano"],
+["STROGONOFF DE CARNE","molho, mussarela, strogonoff de carne e orégano"],
+],
+catDoce25:[
+["BRIGADEIRO","chocolate preto e granulado"],
+["CHOCOLATE BRANCO","chocolate branco"],
+["CHOCOLATE PRETO","chocolate preto"],
+["DOIS AMORES","chocolate preto e chocolate branco"],
+["BEIJINHO","chocolate branco e coco"],
+["PRESTÍGIO","chocolate preto e coco"],
+],
+catDoce35:[
+["BANANA COM CANELA","banana, canela e leite condensado"],
+["CONFETES","chocolate preto, confetes e leite condensado"],
+["SEDUÇÃO","chocolate branco, morango, suspiro e leite condensado"],
+["SENSAÇÃO","chocolate preto, morango, suspiro e leite condensado"],
+["SONHO DE VALSA","chocolate preto, bombom sonho de valsa e leite condensado"],
+["BANANA NEVADA","banana, chocolate branco e leite condensado"],
+],
+};
+let precos={cat18:18,cat25:25,cat35:35,cat55:55,catDoce25:25,catDoce35:35};
+for(let cat in menu){
+ let el=document.getElementById(cat);
+ el.innerHTML=menu[cat].map(([n,d])=>{
+   let id='borda-'+n.replace(/[^a-zA-Z0-9]/g,'');
+   return `<div class="item"><h3>${n}</h3><p>${d}</p><div class="item-row"><span class="price">R$ ${precos[cat]},00</span><button class="add" onclick="add('${n}',${precos[cat]},'${id}')">+ Adicionar</button></div><div class="opts"><label><input type="checkbox" id="${id}"> Borda Recheada + R$5</label></div></div>`;
+ }).join('');
+}
+let cart=[];
+function fmt(v){return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}
+function add(nome,preco,id){
+ let b=document.getElementById(id);
+ let comBorda=b && b.checked;
+ let pf=preco + (comBorda?5:0);
+ cart.push({nome:nome+(comBorda?' (Borda Recheada)':''),preco:pf});
+ updateCart();
+ alert(nome+' adicionada! 🍕');
+}
+function removeItem(i){cart.splice(i,1);updateCart();}
+function updateCart(){
+ let total=cart.reduce((s,i)=>s+i.preco,0);
+ let bar=document.getElementById('cartBar');
+ if(cart.length>0){bar.style.display='block';document.getElementById('cartCount').innerText=cart.length+' itens';document.getElementById('cartTotal').innerText='Total: '+fmt(total);}else{bar.style.display='none';}
+ renderCart();
+}
+function renderCart(){
+ let div=document.getElementById('cartItems');
+ let tot=document.getElementById('totals');
+ if(cart.length==0){div.innerHTML='<p style="text-align:center">Seu carrinho está vazio.</p>';tot.innerHTML='';return;}
+ div.innerHTML=cart.map((it,i)=>`<div class="cart-item"><div><b>${it.nome}</b><small>${it.preco==0?'Consultar no WhatsApp':fmt(it.preco)}</small></div><button class="rm" onclick="removeItem(${i})">✕</button></div>`).join('');
+ let sub=cart.reduce((s,i)=>s+i.preco,0);
+ let tipo=document.getElementById('tipo')?document.getElementById('tipo').value:'entrega';
+ let taxa=tipo=='entrega'?8:0;
+ let meio=document.getElementById('meioameio') && document.getElementById('meioameio').checked?5:0;
+ tot.innerHTML=`Subtotal: ${fmt(sub)}<br>Meio a meio: ${meio==0?'Não':fmt(meio)}<br>Taxa de entrega: ${taxa==0?'Grátis':fmt(taxa)}<br><b>Total: ${fmt(sub+taxa+meio)}</b>`;
+}
+function openCart(){renderCart();document.getElementById('modal').style.display='block';}
+function closeCart(){document.getElementById('modal').style.display='none';}
+function sendOrder(){
+ let nome=document.getElementById('nome').value.trim();
+ let end=document.getElementById('endereco').value.trim();
+ let tipo=document.getElementById('tipo').value;
+ let pag=document.getElementById('pagamento').value;
+ let obs=document.getElementById('obs').value.trim();
+ let meio=document.getElementById('meioameio').checked;
+ if(!nome){alert('Coloca seu nome pra gente saber quem é 😊');return;}
+ if(tipo=='entrega' && !end){alert('Coloca o endereço pra entrega!');return;}
+ if(cart.length==0){alert('Adiciona pelo menos uma pizza!');return;}
+ let sub=cart.reduce((s,i)=>s+i.preco,0);
+ let taxa=tipo=='entrega'?8:0;
+ let meioV=meio?5:0;
+ let total=sub+taxa+meioV;
+ let msg=`*NOVO PEDIDO - PIZZA PREÇO BAIXO*%0A%0A`;
+ cart.forEach(it=>{msg+=`• ${it.nome} - ${it.preco==0?'Consultar':fmt(it.preco)}%0A`;});
+ msg+=`%0ASubtotal: ${fmt(sub)}%0A`;
+ if(meio) msg+=`Meio a meio: ${fmt(5)}%0A`;
+ msg+=`Taxa de entrega: ${taxa==0?'Grátis':fmt(taxa)}%0A`;
+ msg+=`*Total: ${fmt(total)}*%0A%0A`;
+ msg+=`Nome: ${nome}%0A`;
+ msg+=`Tipo: ${tipo=='entrega'?'Entrega 🛵':'Retirada 🏃'}%0A`;
+ if(tipo=='entrega') msg+=`Endereço: ${end}%0A`;
+ msg+=`Pagamento: ${pag}%0A`;
+ if(obs) msg+=`Obs: ${obs}%0A`;
+ window.open('https://wa.me/5541996187621?text='+msg,'_blank');
+}
+document.getElementById('meioameio').addEventListener('change',renderCart);
+</script>
+</body>
+</html>
